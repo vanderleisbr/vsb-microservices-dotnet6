@@ -1,0 +1,1 @@
+# vsb-microservices-dotnet6
