@@ -34,7 +34,6 @@ C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy
 C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\RestWithASPNETUdemy.runtimeconfig.json
 C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\RestWithASPNETUdemy.runtimeconfig.dev.json
 C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\RestWithASPNETUdemy.dll
-C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\ref\RestWithASPNETUdemy.dll
 C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\RestWithASPNETUdemy.pdb
 C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.OpenApi.dll
 C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -55,3 +54,4 @@ C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy
 C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy\obj\Debug\net5.0\ref\RestWithASPNETUdemy.dll
 C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy\obj\Debug\net5.0\RestWithASPNETUdemy.pdb
 C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy\obj\Debug\net5.0\RestWithASPNETUdemy.genruntimeconfig.cache
+C:\Users\vande\vsb-microservices-dotnet6\RestWithASPNETUdemy\RestWithASPNETUdemy\obj\Debug\net5.0\refint\RestWithASPNETUdemy.dll

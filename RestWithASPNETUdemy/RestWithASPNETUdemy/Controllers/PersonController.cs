@@ -1,98 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RestWithASPNETUdemy.Model;
+using RestWithASPNETUdemy.Services;
 
 namespace RestWithASPNETUdemy.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class CalculatorController : ControllerBase
+    [Route("api/[controller]")]
+    public class PersonController : ControllerBase
     {
         private readonly ILogger<CalculatorController> _logger;
-        public CalculatorController(ILogger<CalculatorController> logger)
+
+        private IPersonService _personService;
+        public PersonController(ILogger<CalculatorController> logger, IPersonService personService)
         {
             _logger = logger;
+            _personService = personService;
         }
 
-        [HttpGet("square-root/{number}")]
-        public IActionResult Get(string number)
+        [HttpGet]
+        public IActionResult GetAll()
         {
-            if (IsNumeric(number))
-            {
-               var result = Math.Sqrt(Convert.ToDouble(number));
-                return Ok(result.ToString());
-            }
-
-            return BadRequest("Entrada inválida");
+            return Ok(_personService.FindAll());
         }
 
-        [HttpGet("sum/{firstNumber}/{secondNumber}")]
-        public IActionResult GetSum(string firstNumber, string secondNumber)
+        [HttpGet("{id}")]
+        public IActionResult GetPerson(long id)
         {
-            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
-            {
-                var result = Convert.ToDecimal(firstNumber) + Convert.ToDecimal(secondNumber);
+            var person = _personService.FindById(id);
+            if (person == null) 
+                return NotFound();
 
-                return Ok(result.ToString());
-            }
-
-            return BadRequest("Entrada inválida");
+            return Ok(person);
         }
 
-
-        [HttpGet("sub/{firstNumber}/{secondNumber}")]
-        public IActionResult GetSub(string firstNumber, string secondNumber)
+        [HttpPost]
+        public IActionResult Post([FromBody] Person person)
         {
-            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
-            {
-                var result = Convert.ToDecimal(firstNumber) - Convert.ToDecimal(secondNumber);
+            if (person == null)
+                return BadRequest();
 
-                return Ok(result.ToString());
-            }
-
-            return BadRequest("Entrada inválida");
+            return Ok(_personService.Create(person));
         }
 
-        [HttpGet("mul/{firstNumber}/{secondNumber}")]
-        public IActionResult GetMul(string firstNumber, string secondNumber)
+        [HttpPut]
+        public IActionResult Put([FromBody] Person person)
         {
-            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
-            {
-                var result = Convert.ToDecimal(firstNumber) * Convert.ToDecimal(secondNumber);
+            if (person == null)
+                return BadRequest();
 
-                return Ok(result.ToString());
-            }
-
-            return BadRequest("Entrada inválida");
+            return Ok(_personService.Update(person));
         }
 
-        [HttpGet("div/{firstNumber}/{secondNumber}")]
-        public IActionResult GetDiv(string firstNumber, string secondNumber)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long id)
         {
-            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
-            {
-                var result = Convert.ToDecimal(firstNumber) / Convert.ToDecimal(secondNumber);
+            _personService.Delete(id);
 
-                return Ok(result.ToString());
-            }
-
-            return BadRequest("Entrada inválida");
-        }
-           
-
-        private bool IsNumeric(string strNumber)
-        {
-            double number;
-            bool isNumber = double.TryParse
-                (strNumber, 
-                System.Globalization.NumberStyles.Any, 
-                System.Globalization.NumberFormatInfo.InvariantInfo, 
-                out number);
-            
-            return isNumber;
+            return NoContent();
         }
     }
 }
